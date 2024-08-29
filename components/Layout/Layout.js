@@ -1,6 +1,7 @@
 import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import Content from '@/pages/Content/Content';
+import Footer from '../Footer/Footer';
 
 export default function RootLayout() {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout() {
             <Sidebar />
             <Content />
           </div>
+          <Footer/>
         </div>
     </>
   )
