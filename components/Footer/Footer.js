@@ -56,10 +56,10 @@ const Footer = () => {
             </p>
             <ul className="space-y-4 text-sm">
               <li className="flex items-center">
-                <span className="text-white">Davin (022) 4264318</span>
+                <span className="text-white">Davin +6285861965068</span>
               </li>
               <li className="flex items-center">
-                <span className="text-white">Sidiq (022) 4264881</span>
+                <span className="text-white">Sidiq +6285860552155</span>
               </li>
             </ul>
           </div>

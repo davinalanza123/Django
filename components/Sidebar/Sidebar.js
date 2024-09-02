@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import { HomeIcon, ClipboardDocumentListIcon, ShieldCheckIcon, UserIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
+import {
+  HomeIcon,
+  ClipboardDocumentListIcon,
+  ShieldCheckIcon,
+  UserIcon,
+  InformationCircleIcon,
+} from '@heroicons/react/24/outline';
 
 function Sidebar() {
-  const [activeItem, setActiveItem] = useState('overview');
+  const [activeItem, setActiveItem] = useState('/');
   const router = useRouter();
 
-  const handleClick = (item) => {
+  const handleClick = (item, route) => {
     setActiveItem(item);
-    if (item === 'admin') {
-      router.push('/Admin');
-    }
+    router.push(route);
   };
 
   return (
-    <aside className="container mx-auto flex flex-col h-auto w-1/4 border-r bg-gradient-to-r from-blue-700 to-blue-600 shadow-md">
+    <aside className="container mx-auto flex flex-col h-auto w-1/2 border-r bg-gradient-to-r from-blue-700 to-blue-600 shadow-md">
       <div className="px-4 py-6 space-y-4">
         <ul className="space-y-1">
           <li>
             <a
               href="#"
-              onClick={() => handleClick('overview')}
-              className={`flex items-center rounded-lg px-4 py-4 text-sm font-medium text-white ${activeItem === 'overview' ? 'bg-blue-800' : 'hover:bg-blue-800'} transition-colors duration-200`}
+              onClick={() => handleClick('/', '/')}
+              className={`flex items-center rounded-lg px-4 py-4 text-sm font-medium text-white ${
+                activeItem === '/' ? 'bg-blue-800' : 'hover:bg-blue-800'
+              } transition-colors duration-200`}
             >
               <HomeIcon className="h-5 w-5 text-white mr-3" />
               Overview | Ringkasan
@@ -44,7 +50,7 @@ function Sidebar() {
                   >
                     <path
                       fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 010-1.414z"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 01-1.414 0l-4-4a1 1 010-1.414z"
                       clipRule="evenodd"
                     />
                   </svg>
@@ -55,7 +61,7 @@ function Sidebar() {
                   <li>
                     <a
                       href="#"
-                      onClick={() => handleClick('admin')}
+                      onClick={() => handleClick('admin', '/Admin')}
                       className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium text-white ${
                         activeItem === 'admin' ? 'bg-blue-800' : 'hover:bg-blue-800'
                       } transition-colors duration-200`}
@@ -67,7 +73,7 @@ function Sidebar() {
                   <li>
                     <a
                       href="#"
-                      onClick={() => handleClick('user')}
+                      onClick={() => handleClick('user', '/User')}
                       className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium text-white ${
                         activeItem === 'user' ? 'bg-blue-800' : 'hover:bg-blue-800'
                       } transition-colors duration-200`}
@@ -76,15 +82,17 @@ function Sidebar() {
                       User
                     </a>
                   </li>
-                </ul>
+                </ul> {/* Added closing tag for this ul */}
               </div>
             </details>
           </li>
-        </ul>
-
+        </ul> {/* Added closing tag for this ul */}
         <div className="mt-1">
           <div
-            className="flex items-center rounded-lg px-4 py-4 text-sm font-medium text-white hover:bg-blue-800 transition-colors duration-200 cursor-pointer"
+            onClick={() => handleClick('help', '/Help')}
+            className={`flex items-center rounded-lg px-4 py-4 text-sm font-medium text-white ${
+              activeItem === 'help' ? 'bg-blue-800' : 'hover:bg-blue-800'
+            } transition-colors duration-200 cursor-pointer`}
           >
             <InformationCircleIcon className="h-5 w-5 text-white mr-3" />
             Help
