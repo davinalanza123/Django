@@ -1,9 +1,8 @@
-import Layout from "../components/Layout/Layout"
-
+import Content from '@/pages/Content/Content';
 export default function Home() {
   return (
     <>
-      <Layout />
+      <Content />
     </>
   )
 }

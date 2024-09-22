@@ -19,7 +19,7 @@ export default function Contents() {
         {isSidebarVisible && <Sidebar />}
         
         {/* Main Content */}
-        <div className={`transition-all duration-300 ${isSidebarVisible ? '' : 'w-full'} p-6 bg-white text-black shadow-lg`}>
+        <div className={`ml-72 transition-all duration-300 ${isSidebarVisible ? '' : 'w-full'}w-full p-6 bg-white text-black shadow-lg`}>
           <h1 className="text-4xl font-bold mb-6 text-blue-400">Pengelolaan Mailbox Admin</h1>
           
           {/* Dashboard Section */}

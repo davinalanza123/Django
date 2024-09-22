@@ -19,7 +19,7 @@ export default function Contents() {
         {isSidebarVisible && <Sidebar />}
         
         {/* Main Content */}
-        <div className={`transition-all duration-300 ${isSidebarVisible ? '' : 'w-full'} p-6 bg-white text-black shadow-lg`}>
+        <div className={`ml-72 transition-all duration-300 ${isSidebarVisible ? '' : 'w-full'}w-full p-6 bg-white text-black shadow-lg`}>
           <h1 className="text-4xl font-bold mb-6 text-blue-400">Tutorial Mengisi Formulir Pengajuan</h1>
 
           {/* Menu Atas Section */}
@@ -27,6 +27,10 @@ export default function Contents() {
             <h2 className="text-2xl font-bold mb-4 text-blue-400 flex items-center">
               <i className="ri-menu-line mr-2"></i> Menu Atas
             </h2>
+             {/* Image for Menu Data */}
+             <div className="flex justify-center">
+              <img src="/assets/image/Menu.png" alt="Tracking Data" className="max-w-full h-auto mt-4" />
+            </div>
             <p className="text-lg mb-4">
               Menu atas pada halaman pengajuan terdiri dari:
             </p>
@@ -41,6 +45,12 @@ export default function Contents() {
             <h2 className="text-2xl font-bold mb-4 text-blue-400 flex items-center">
               <i className="ri-file-text-line mr-2"></i> Formulir Pengajuan
             </h2>
+             {/* Image for Formulir Pengajuan */}
+             <div className="flex justify-center">
+              <img src="/assets/image/Form.png" alt="Formulir Pengajuan" className="max-w-full h-auto mt-4" />
+            </div>
+         
+
             <p className="text-lg mb-4">
               Berikut adalah langkah-langkah untuk mengisi formulir pengajuan:
             </p>
@@ -59,16 +69,21 @@ export default function Contents() {
               <li><strong>Bentuk Mendapatkan Salinan Informasi:</strong> [Isi sesuai kebutuhan]</li>
               <li><strong>Cara Mendapatkan Salinan Informasi:</strong> [Isi sesuai kebutuhan]</li>
             </ul>
-          </div>
-
+            </div>
+           
           {/* Tracking Data Section */}
           <div className="bg-white p-4 rounded-lg mb-6 shadow-lg">
             <h2 className="text-2xl font-bold mb-4 text-blue-400 flex items-center">
               <i className="ri-search-line mr-2"></i> Tracking Data
             </h2>
+            {/* Image for Tracking Data */}
+            <div className="flex justify-center">
+              <img src="/assets/image/Tracking.png" alt="Tracking Data" className="max-w-full h-auto mt-4" />
+            </div>
             <p className="text-lg mb-4">
               Setelah Anda mengirimkan pengajuan, Anda dapat menggunakan fitur <strong>Tracking</strong> untuk melacak status pengajuan Anda. Masukkan kode pengajuan yang Anda terima setelah mengirimkan formulir untuk melihat informasi lebih lanjut mengenai status permohonan Anda.
             </p>
+            
           </div>
         </div>
       </div>

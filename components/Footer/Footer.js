@@ -6,7 +6,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGlobe } from 'react-ic
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-600 py-8">
+    <footer className="relative bg-blue-600 py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-20">
         {/* Logo Section */}
         <div className="flex  mb-8">
