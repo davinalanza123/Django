@@ -1,58 +1,90 @@
+import React, { useState } from 'react';
+import Sidebar from '@/components/Sidebar/Sidebar'; // Assuming you have a Sidebar component
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
+import 'remixicon/fonts/remixicon.css'; // Import Remix Icons
+
 export default function Contents() {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(true); // Default sidebar to visible
+
+  const toggleSidebar = () => {
+    setIsSidebarVisible(!isSidebarVisible);
+  };
+
   return (
-    <>
-      <div className="w-3/4 p-6 bg-white text-black shadow-lg rounded-lg">
-        {/* Kotak Pencarian */}
-        <div className="flex justify-end items-center mb-4">
-          <input
-            type="text"
-            placeholder="Cari di dokumentasi..."
-            className="w-1/3 px-4 py-2 border border-black-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-700"
-          />
-        </div>
-
-        {/* Judul dan Pengantar */}
-        <h1 className="text-4xl font-bold mb-6">Dokumentasi Mailbox Disdik Jabar</h1>
-        <div className="bg-gray-200 p-4 rounded-lg mb-6">
-        <p className="text-lg mb-4">
-          Selamat datang di dokumentasi Mailbox Disdik Jabar. Di sini, Anda akan menemukan informasi lengkap tentang bagaimana menggunakan sistem Mailbox untuk pertanyaan publik, permintaan dokumen, dan saran.
-        </p>
-        </div>
-
-        {/* Tujuan Web Mailbox */}
-        <div className="bg-gray-200 p-4 rounded-lg mb-6">
-          <p className="text-lg">
-            Web Mailbox ini dibuat untuk memfasilitasi masyarakat dalam mengajukan permohonan berkas terkait pendidikan, seperti sertifikat, dokumen resmi, dan kebutuhan administratif lainnya. Dengan menggunakan platform ini, masyarakat dapat lebih mudah dan cepat berkomunikasi dengan Dinas Pendidikan Jawa Barat (Disdik Jabar) dalam memenuhi kebutuhan pendidikan mereka.
-          </p>
-        </div>
-
-        {/* Pengenalan Mailbox */}
-        <h1 className="text-4xl font-bold mb-6">Tujuan</h1>
-        <div className="bg-gray-200 p-4 rounded-lg mb-6">
-        <div className="flex items-center mt-4">
-          <p className="text-lg">
-            Mailbox ini dirancang untuk memfasilitasi komunikasi antara publik dan Disdik Jabar. Untuk informasi lebih lanjut, kunjungi 
-            <a href="https://disdik.jabarprov.go.id/" className="text-blue-500 hover:underline"> Website Disdik Jabar</a>.
-          </p>
-        </div>
-        </div>
-
-        {/* Bantuan | FAQ */}
-        <h2 className="text-2xl font-semibold mt-8 mb-4">Bantuan | FAQ</h2>
-        <p className="mb-4">Butuh bantuan? Berikut adalah beberapa sumber daya yang mungkin berguna:</p>
-        <ul className="list-disc pl-6">
-          <li><a href="#" className="text-blue-500 hover:underline">FAQ</a> - Jawaban untuk pertanyaan yang sering diajukan.</li>
-          <li><a href="#" className="text-blue-500 hover:underline">Indeks</a>, <a href="#" className="text-blue-500 hover:underline">Indeks Modul</a>, atau <a href="#" className="text-blue-500 hover:underline">Daftar Isi Terperinci</a> untuk informasi spesifik.</li>
-          <li>Masih ada pertanyaan? Lihat <a href="#" className="text-blue-500 hover:underline">FAQ: Mendapatkan Bantuan</a> untuk panduan lebih lanjut.</li>
-        </ul>
-
+    <div className="min-h-screen flex flex-col">
+      {/* Header */}
+      <Header />
       
-        {/* Navigasi Konten */}
-        <div className="mt-8 border-t border-gray-300 pt-4 text-sm text-gray-500">
-          <span className="mr-4">• <a href="#" className="hover:underline">Prev: Django Documentation Contents</a></span>
-          <span><a href="#" className="hover:underline">Next: Getting Started</a></span>
+      {/* Main Content Area */}
+      <div className="flex flex-1">
+        {/* Sidebar */}
+        {isSidebarVisible && <Sidebar />}
+        
+        {/* Main Content */}
+        <div className={`ml-72 transition-all duration-500 ${isSidebarVisible ? '' : 'w-full'}w-full p-8 bg-gradient-to-r from-white to-gray-100 text-black shadow-lg flex-grow`}>
+          {/* Toggle Sidebar Button */}
+          {/* <button
+            className="p-2 text-white bg-blue-500 rounded-md mb-4"
+            onClick={toggleSidebar}
+          >
+            {isSidebarVisible ? 'Hide Sidebar' : 'Show Sidebar'}
+          </button> */}
+          
+          {/* Search Box */}
+          <div className="flex justify-end items-center mb-6">
+            <input
+              type="text"
+              placeholder="Cari di dokumentasi..."
+              className="w-1/3 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-shadow"
+            />
+          </div>
+
+          {/* Title and Introduction */}
+          <h1 className="text-5xl font-extrabold text-blue-600 mb-8 text-center">
+            Dokumentasi Mailbox Disdik Jabar
+          </h1>
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Selamat datang di dokumentasi Mailbox Disdik Jabar. Di sini, Anda akan menemukan informasi lengkap tentang bagaimana menggunakan sistem Mailbox untuk pertanyaan publik, permintaan dokumen, dan saran.
+            </p>
+          </div>
+
+          {/* Why is the Mailbox Necessary? */}
+          <h2 className="text-4xl font-bold text-blue-500 mb-6 text-center">
+            Mengapa Mailbox Surat Pengajuan Diperlukan?
+          </h2>
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+              Surat pengajuan atau permohonan pada suatu lembaga, organisasi, maupun badan pemerintahan sangat diperlukan untuk membuat sebuah permohonan suatu individu atau kelompok. Pengajuan ini juga bisa mengajukan beberapa hal seperti contohnya, surat perizinan, berkas-berkas suatu informasi, maupun sebagainya.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Dibuatnya surat permohonan melalui mailbox agar memudahkan pemohon melakukan permohonan/pengajuan sesuatu kepada suatu lembaga pemerintahan terkhususnya Dinas Pendidikan Jawa Barat (Disdik Jabar). Pada mailbox tersebut, pemohon hanya mengisi sebuah formulir permohonan pada suatu website yang sudah disediakan, dan akan dikirimkan permohonan tersebut kepada administrasi melalui online lewat perantara website.
+            </p>
+          </div>
+
+          {/* Benefits of Using the Mailbox */}
+          <h2 className="text-4xl font-bold text-blue-500 mb-6 text-center">
+            Keuntungan Menggunakan Mailbox
+          </h2>
+          <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <ol className="list-decimal list-inside space-y-4 text-gray-700 text-lg">
+              <li>
+                <strong>Lebih Mudah Mengajukan:</strong> Mengajukan suatu permohonan lebih mudah dan lebih cepat, tidak memerlukan waktu yang begitu lama dan dapat dipantau secara real time melalui website Disdik Jabar.
+              </li>
+              <li>
+                <strong>Hasil yang lebih sempurna:</strong> Permohonan yang telah diterima akan dikirimkan informasi mengenai penerimaan permohonan tersebut beserta lampiran dokumen yang diajukan.
+              </li>
+              <li>
+                <strong>Informasi pengajuan yang lebih fleksibel:</strong> Informasi-informasi mengenai pengajuan akan selalu dikirimkan sesuai dengan proses pengajuan melalui email pemohon.
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
-    </>
+
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
